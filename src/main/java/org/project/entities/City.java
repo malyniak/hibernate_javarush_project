@@ -18,8 +18,7 @@ public class City {
     public City() {
     }
 
-    public City(Integer id, String name, Country country, String district, Integer population) {
-        this.id = id;
+    public City(String name, Country country, String district, Integer population) {
         this.name = name;
         this.country = country;
         this.district = district;
