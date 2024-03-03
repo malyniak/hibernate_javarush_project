@@ -14,18 +14,19 @@ public class CountryLanguage {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
+    private String language;
     @Column(name = "is_official", columnDefinition = "BIT")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private Byte isOfficial;
+    private Boolean isOfficial;
     @Column(precision = 4, scale = 1)
     private BigDecimal percentage;
 
     public CountryLanguage() {
     }
 
-    public CountryLanguage(Integer id, Country country, Byte isOfficial, BigDecimal percentage) {
-        this.id = id;
+    public CountryLanguage(Country country, String language, Boolean isOfficial, BigDecimal percentage) {
         this.country = country;
+        this.language = language;
         this.isOfficial = isOfficial;
         this.percentage = percentage;
     }
@@ -46,11 +47,11 @@ public class CountryLanguage {
         this.country = country;
     }
 
-    public Byte getIsOfficial() {
+    public Boolean getIsOfficial() {
         return isOfficial;
     }
 
-    public void setIsOfficial(Byte isOfficial) {
+    public void setIsOfficial(Boolean isOfficial) {
         this.isOfficial = isOfficial;
     }
 
@@ -60,5 +61,13 @@ public class CountryLanguage {
 
     public void setPercentage(BigDecimal percentage) {
         this.percentage = percentage;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

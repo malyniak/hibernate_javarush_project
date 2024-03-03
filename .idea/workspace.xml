@@ -7,10 +7,24 @@
     <list default="true" id="8e55bc7a-7ab7-4ec4-a836-6cc568d0d4e0" name="Changes" comment="add dao level">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412/storage_v2/_src_/schema/world.khvBBg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412/storage_v2/_src_/schema/world.khvBBg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/config/RedisConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/AbstractDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CityDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryLanguageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryLanguageDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/CountryLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/CountryLanguage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CountryLanguageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CountryLanguageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CountryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +68,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -66,7 +83,56 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RedisTest.testRedisData (1)">
+    <configuration name="MySQLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MySQLTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLTest.testIncrementRequests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MySQLTest" />
+      <option name="METHOD_NAME" value="testIncrementRequests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLTest.testMySQLData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MySQLTest" />
+      <option name="METHOD_NAME" value="testMySQLData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.testIncrementRequests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.RedisTest" />
+      <option name="METHOD_NAME" value="testIncrementRequests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.testRedisData (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.RedisTest" />
+      <option name="METHOD_NAME" value="testRedisData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,6 +144,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RedisTest.testRedisData (1)" />
+        <item itemvalue="JUnit.RedisTest.testIncrementRequests" />
+        <item itemvalue="JUnit.MySQLTest.testMySQLData" />
+        <item itemvalue="JUnit.MySQLTest.testIncrementRequests" />
+        <item itemvalue="JUnit.MySQLTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,6 +171,15 @@
       <workItem from="1707415691558" duration="1143000" />
       <workItem from="1707493771856" duration="15003000" />
       <workItem from="1707638935926" duration="10832000" />
+      <workItem from="1709103567424" duration="121000" />
+      <workItem from="1709103726555" duration="153000" />
+      <workItem from="1709103894262" duration="6320000" />
+      <workItem from="1709195200878" duration="1783000" />
+      <workItem from="1709230688621" duration="3866000" />
+      <workItem from="1709235811190" duration="2984000" />
+      <workItem from="1709279308081" duration="2224000" />
+      <workItem from="1709306843159" duration="1451000" />
+      <workItem from="1709452366883" duration="13486000" />
     </task>
     <task id="LOCAL-00001" summary="create entities">
       <option name="closed" value="true" />
@@ -118,6 +202,13 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create entities" />

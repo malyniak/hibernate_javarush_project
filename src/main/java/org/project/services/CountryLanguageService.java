@@ -16,7 +16,4 @@ public class CountryLanguageService {
     public static CountryLanguageService getInstance() {
         return instance;
     }
-    public List<CountryLanguage> getAllCitiesFromCountry(int id) {
-        return countryLanguageDAO.citiesByCountry(id);
-    }
 }

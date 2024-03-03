@@ -1,31 +1,53 @@
 package org.project.services;
 
+import org.hibernate.SessionFactory;
+import org.project.HibernateUtil;
 import org.project.dao.CityDAO;
 import org.project.entities.City;
+import org.project.redis.RedisMapper;
+import redis.clients.jedis.Jedis;
 
-import java.util.Optional;
+import java.util.*;
 
 public class CityService {
-    private static final CityService instance=CityService.getInstance();
+    private SessionFactory sessionFactory = HibernateUtil.getMySqlSessionFactory();
     private CityDAO cityDAO;
-    private CityService(CityDAO cityDAO) {
-        this.cityDAO=cityDAO;
+
+    public CityService(CityDAO cityDAO) {
+        this.cityDAO = cityDAO;
     }
-    public static CityService getInstance() {
-        return instance;
-    }
+
+    private final Map<Integer, Integer> countRequests = new HashMap<>();
+
     public boolean delete(Integer id) {
         Optional<City> maybeCity = cityDAO.findById(id);
-        if(maybeCity.isPresent()) {
+        if (maybeCity.isPresent()) {
             cityDAO.delete(maybeCity.get());
             return true;
         }
         return false;
     }
+
     public long getCitiesCount() {
-       return cityDAO.getCitiesCount();
+        return cityDAO.getCitiesCount();
     }
+
     public City getById(Integer id) {
-       return cityDAO.findById(id).orElseThrow(RuntimeException::new);
+        var city = cityDAO.findById(id).orElseThrow(RuntimeException::new);
+        if (!countRequests.containsKey(id)) {
+            countRequests.put(id, 1);
+        } else {
+            countRequests.replace(id, countRequests.get(id) + 1);
+            if (countRequests.get(id) >= 10) {
+                var jedis = new Jedis("localhost", 6379);
+                var countryCity = RedisMapper.map(List.of(city));
+                jedis.set(String.valueOf(id), String.valueOf(countryCity));
+            }
+        }
+        return city;
+    }
+
+    public Map<Integer, Integer> getCountRequest() {
+        return countRequests;
     }
 }

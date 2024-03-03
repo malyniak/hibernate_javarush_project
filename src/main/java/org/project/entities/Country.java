@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "country", schema = "world")
@@ -38,13 +39,13 @@ public class Country {
     @OneToOne
     @JoinColumn(name = "capital")
     private City capital;
- //   @OneToMany
- //   private List<CountryLanguage>  countryLanguage;
+    @OneToMany
+    @JoinColumn(name = "country_id")
+    private Set<CountryLanguage>  countryLanguage;
     public Country() {
     }
 
-    public Country(Integer id, String code, String code2, String name, Continent continent, String region, BigDecimal surfaceArea, Short indepYear, int population, BigDecimal lifeExpectancy, BigDecimal gnp, BigDecimal gnpoId, String localName, String governmentForm, String headOfState, City capital) {
-        this.id = id;
+    public Country(String code, String code2, String name, Continent continent, String region, BigDecimal surfaceArea, Short indepYear, int population, BigDecimal lifeExpectancy, BigDecimal gnp, BigDecimal gnpoId, String localName, String governmentForm, String headOfState, City capital, Set<CountryLanguage> countryLanguage) {
         this.code = code;
         this.code2 = code2;
         this.name = name;
@@ -60,6 +61,7 @@ public class Country {
         this.governmentForm = governmentForm;
         this.headOfState = headOfState;
         this.capital = capital;
+        this.countryLanguage = countryLanguage;
     }
 
     public Integer getId() {
@@ -188,5 +190,13 @@ public class Country {
 
     public void setCapital(City capital) {
         this.capital = capital;
+    }
+
+    public Set<CountryLanguage> getCountryLanguage() {
+        return countryLanguage;
+    }
+
+    public void setCountryLanguage(Set<CountryLanguage> countryLanguage) {
+        this.countryLanguage = countryLanguage;
     }
 }

@@ -15,13 +15,13 @@ public class CountryDAO extends AbstractDAO<Country, Integer> {
         super(Country.class);
         this.sessionFactory=sessionFactory;
     }
-    public List<City> citiesByCountry(int id) {
-        Optional<Country> maybeCountry = findById(id);
-        if(maybeCountry.isPresent()) {
-            Session session = sessionFactory.openSession();
-            Query<City> query = session.createQuery("select c from City as c where c.country=:id", City.class);
-            query.setParameter("id", id);
-           return query.getResultList();
-        } throw new RuntimeException();
+    public Country getCountryByCity(String city) {
+        Country country=null;
+        try(var session = sessionFactory.openSession()) {
+            var query = session.createQuery("select c from Country as c where c.name=:city", Country.class);
+            query.setParameter("city", city);
+            country=query.uniqueResult();
+        }
+        return country;
     }
 }

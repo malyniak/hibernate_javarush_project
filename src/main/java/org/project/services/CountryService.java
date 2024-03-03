@@ -2,8 +2,7 @@ package org.project.services;
 
 import org.project.dao.CountryDAO;
 import org.project.entities.City;
-
-import java.util.List;
+import org.project.entities.Country;
 
 public class CountryService {
     private static final CountryService instance = CountryService.getInstance();
@@ -14,7 +13,7 @@ public class CountryService {
     public static CountryService getInstance() {
         return instance;
     }
-    public List<City> getAllCitiesFromCountry(int id) {
-       return countryDAO.citiesByCountry(id);
+    public Country getCountry(City city) {
+       return countryDAO.getCountryByCity(city.getName());
     }
 }

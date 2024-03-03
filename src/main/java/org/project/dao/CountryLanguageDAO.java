@@ -16,13 +16,5 @@ public class CountryLanguageDAO extends AbstractDAO<CountryLanguage, Integer> {
         super(CountryLanguage.class);
         this.sessionFactory=sessionFactory;
     }
-    public List<CountryLanguage> citiesByCountry(int id) {
-       Optional<Country> maybeCountry = Optional.ofNullable(sessionFactory.getCurrentSession().get(Country.class, id));
-        if (maybeCountry.isPresent()) {
-            Query<CountryLanguage> query = sessionFactory.getCurrentSession().createQuery("select l from CountryLanguage as l where l.country=:id", CountryLanguage.class);
-            query.setParameter("id", id);
-            return query.getResultList();
-        }
-        throw new RuntimeException();
-    }
+
 }

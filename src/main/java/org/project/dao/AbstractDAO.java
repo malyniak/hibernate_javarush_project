@@ -4,6 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.project.HibernateUtil;
 
@@ -32,16 +33,22 @@ public abstract class  AbstractDAO<K, I extends Serializable> {
     }
     public void delete (K k) {
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.delete(k);
+        transaction.commit();
     }
     public K create(K k) {
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.persist(k);
+        transaction.commit();
         return k;
     }
     public K update (K k) {
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.merge(k);
+        transaction.commit();
         return k;
     }
 }

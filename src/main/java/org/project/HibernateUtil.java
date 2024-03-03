@@ -11,11 +11,10 @@ import java.util.Properties;
 
 public class HibernateUtil {
     private static SessionFactory mySqlSessionFactory;
-    private static SessionFactory redisSessionFactory;
 
     public static SessionFactory getMySqlSessionFactory() {
         Properties properties = new Properties();
-        properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
+        properties.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
         properties.put(Environment.URL, "jdbc:mysql://localhost:3306/world");
         properties.put(Environment.USER, "root");
