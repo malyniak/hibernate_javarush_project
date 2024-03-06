@@ -1,11 +1,7 @@
 package org.project.dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import org.hibernate.*;
 import org.project.entities.City;
-
 import java.util.List;
 
 public class CityDAO extends AbstractDAO<City, Integer> {

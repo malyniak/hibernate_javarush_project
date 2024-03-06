@@ -2,15 +2,10 @@ package org.project.dao;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import org.hibernate.*;
 import org.project.HibernateUtil;
-
 import java.io.Serializable;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public abstract class  AbstractDAO<K, I extends Serializable> {
     private SessionFactory sessionFactory= HibernateUtil.getMySqlSessionFactory();

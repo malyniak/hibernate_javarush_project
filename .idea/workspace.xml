@@ -4,27 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e55bc7a-7ab7-4ec4-a836-6cc568d0d4e0" name="Changes" comment="add dao level">
+    <list default="true" id="8e55bc7a-7ab7-4ec4-a836-6cc568d0d4e0" name="Changes" comment="add redis and tests">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412/storage_v2/_src_/schema/world.khvBBg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ad8fcc1-1db8-4788-a59d-dff8ff2a6412/storage_v2/_src_/schema/world.khvBBg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/config/RedisConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/AbstractDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CityDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryLanguageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/dao/CountryLanguageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/Country.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/entities/CountryLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/entities/CountryLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CountryLanguageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CountryLanguageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/project/services/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/project/services/CountryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +29,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -83,16 +77,7 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.RedisTest.testRedisData (1)">
-    <configuration name="MySQLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hibernate_final_project" />
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.MySQLTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.RedisTest.getDataFromRedis">
     <configuration name="MySQLTest.testIncrementRequests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hibernate_final_project" />
       <option name="PACKAGE_NAME" value="org.example" />
@@ -108,6 +93,16 @@
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.MySQLTest" />
       <option name="METHOD_NAME" value="testMySQLData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.getDataFromRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernate_final_project" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.RedisTest" />
+      <option name="METHOD_NAME" value="getDataFromRedis" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RedisTest.getDataFromRedis" />
         <item itemvalue="JUnit.RedisTest.testRedisData (1)" />
         <item itemvalue="JUnit.RedisTest.testIncrementRequests" />
         <item itemvalue="JUnit.MySQLTest.testMySQLData" />
         <item itemvalue="JUnit.MySQLTest.testIncrementRequests" />
-        <item itemvalue="JUnit.MySQLTest" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +174,15 @@
       <workItem from="1709235811190" duration="2984000" />
       <workItem from="1709279308081" duration="2224000" />
       <workItem from="1709306843159" duration="1451000" />
-      <workItem from="1709452366883" duration="13486000" />
+      <workItem from="1709452366883" duration="19649000" />
+      <workItem from="1709573026947" duration="7934000" />
+      <workItem from="1709657775370" duration="222000" />
+      <workItem from="1709658025477" duration="1705000" />
+      <workItem from="1709665824242" duration="100000" />
+      <workItem from="1709665968827" duration="40000" />
+      <workItem from="1709666024934" duration="714000" />
+      <workItem from="1709666781472" duration="1172000" />
+      <workItem from="1709708392067" duration="1118000" />
     </task>
     <task id="LOCAL-00001" summary="create entities">
       <option name="closed" value="true" />
@@ -197,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707505839313</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add redis and tests">
+      <option name="closed" value="true" />
+      <created>1709473177092</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709473177092</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +224,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create entities" />
     <MESSAGE value="add dao level" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dao level" />
+    <MESSAGE value="add redis and tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add redis and tests" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/example/RedisTest.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

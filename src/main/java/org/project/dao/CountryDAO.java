@@ -1,13 +1,7 @@
 package org.project.dao;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
-import org.project.entities.City;
 import org.project.entities.Country;
-
-import java.util.List;
-import java.util.Optional;
 
 public class CountryDAO extends AbstractDAO<Country, Integer> {
     private final SessionFactory sessionFactory;
