@@ -1,12 +1,14 @@
 package org.project.dao;
 
 import org.hibernate.*;
+import org.project.HibernateUtil;
 import org.project.entities.City;
 import java.util.List;
 
 public class CityDAO extends AbstractDAO<City, Integer> {
+    private static final CityDAO INSTANCE=new CityDAO(HibernateUtil.getMySqlSessionFactory());
     private SessionFactory sessionFactory;
-    public CityDAO(SessionFactory sessionFactory) {
+    private CityDAO(SessionFactory sessionFactory) {
         super(City.class);
         this.sessionFactory=sessionFactory;
     }
@@ -21,5 +23,8 @@ public class CityDAO extends AbstractDAO<City, Integer> {
             transaction.commit();
             return query.getResultList();
         }
+    }
+    public static CityDAO getInstance() {
+        return INSTANCE;
     }
 }

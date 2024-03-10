@@ -1,33 +1,48 @@
 package org.project.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.hibernate.SessionFactory;
-import org.project.HibernateUtil;
+import org.project.*;
 import org.project.dao.CityDAO;
 import org.project.entities.City;
-import org.project.redis.CountryCity;
+import org.project.exceptions.CityNotFoundException;
 import org.project.redis.RedisMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 import redis.clients.jedis.Jedis;
-
 import java.util.*;
 
 public class CityService {
+    private static final CityService INSTANCE = new CityService();
+    private final CityDAO cityDAO = CityDAO.getInstance();
     private final Logger logger = LoggerFactory.getLogger(City.class);
-    private SessionFactory sessionFactory = HibernateUtil.getMySqlSessionFactory();
-    private CityDAO cityDAO;
-    private Jedis jedis = new Jedis("localhost", 6379);
+    private final SessionFactory sessionFactory = HibernateUtil.getMySqlSessionFactory();
+    private final Jedis jedis;
 
-    public CityService(CityDAO cityDAO) {
-        this.cityDAO = cityDAO;
+    private CityService() {
+        jedis = new Jedis("localhost", 6379);
+    }
+
+    public static CityService getInstance() {
+        return INSTANCE;
     }
 
     private final Map<Integer, Integer> countRequests = new HashMap<>();
 
-    public boolean delete(Integer id) {
-        Optional<City> maybeCity = cityDAO.findById(id);
+    public List<City> getAll() {
+        return cityDAO.findAll();
+    }
+
+    public void create(City city) {
+        cityDAO.create(city);
+    }
+
+    public City update(City city) {
+        return cityDAO.update(city);
+    }
+
+
+    public boolean remove(City city) {
+        Optional<City> maybeCity = cityDAO.findById(city.getId());
         if (maybeCity.isPresent()) {
             cityDAO.delete(maybeCity.get());
             logger.info(String.format("City %s was deleted", maybeCity.get().getName()));
@@ -44,28 +59,22 @@ public class CityService {
     }
 
     public City getById(Integer id) {
-
-        City city = null;
-        try {
-            city = countRequests.get(id) >= 10 ? RedisMapper.mapToCity(new ObjectMapper().readValue(jedis.get(String.valueOf(id)), CountryCity.class)) :
-                    (cityDAO.findById(id).orElseThrow(RuntimeException::new));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        if (!countRequests.containsKey(id) && city != null) {
+        int cashingValue = 10;
+        City city = (cityDAO.findById(id).orElseThrow(() ->
+                new CityNotFoundException(String.format("City with id %d not found", id))));
+        if (!countRequests.containsKey(id)) {
             countRequests.put(id, 1);
             logger.info(String.format("There is first request for city %s", city.getName()));
-        } else {
+        } else if (countRequests.get(id) < cashingValue) {
             countRequests.replace(id, countRequests.get(id) + 1);
-
-        }
-        if (countRequests.get(id) == 10 && city != null) {
+        } else {
             var countryCity = RedisMapper.mapToCountryCity(List.of(city));
             jedis.set(String.valueOf(id), String.valueOf(countryCity));
             logger.info(String.format("City %s wrote to Redis", city.getName()));
         }
         return city;
     }
+
 
     public Map<Integer, Integer> getCountRequest() {
         return countRequests;

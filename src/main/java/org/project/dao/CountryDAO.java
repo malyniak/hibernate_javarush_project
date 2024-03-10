@@ -1,11 +1,13 @@
 package org.project.dao;
 
 import org.hibernate.SessionFactory;
+import org.project.HibernateUtil;
 import org.project.entities.Country;
 
 public class CountryDAO extends AbstractDAO<Country, Integer> {
+    private static final CountryDAO INSTANCE = new CountryDAO(HibernateUtil.getMySqlSessionFactory());
     private final SessionFactory sessionFactory;
-    public CountryDAO(SessionFactory sessionFactory) {
+    private CountryDAO(SessionFactory sessionFactory) {
         super(Country.class);
         this.sessionFactory=sessionFactory;
     }
@@ -17,5 +19,8 @@ public class CountryDAO extends AbstractDAO<Country, Integer> {
             country=query.uniqueResult();
         }
         return country;
+    }
+    public static CountryDAO getInstance() {
+        return INSTANCE;
     }
 }
