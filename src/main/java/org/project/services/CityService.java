@@ -9,6 +9,7 @@ import org.project.exceptions.CityNotFoundException;
 import org.project.redis.RedisMapper;
 import org.slf4j.*;
 import redis.clients.jedis.Jedis;
+
 import java.util.*;
 
 public class CityService {
@@ -34,10 +35,19 @@ public class CityService {
 
     public void create(City city) {
         cityDAO.create(city);
+        var cities = getAll();
+        if (cities.contains(city)) {
+            logger.info(String.format("City %s was save to db", city.getName()));
+        } else {
+            logger.info(String.format("Something goes wrong. City %s wasn't added to db", city.getName()));
+        }
     }
 
     public City update(City city) {
-        return cityDAO.update(city);
+        var updatedCity = cityDAO.update(city);
+        if (city.equals(updatedCity)) logger.info(String.format("City %s wasn't update", city.getName()));
+        else logger.info(String.format("City %s was update", city.getName()));
+        return updatedCity;
     }
 
 

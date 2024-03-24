@@ -39,9 +39,18 @@ public class CountryLanguageService {
 
     public void create(CountryLanguage countryLanguage) {
         countryLanguageDAO.create(countryLanguage);
+        var countryLanguages = getAll();
+        if (countryLanguages.contains(countryLanguage)) {
+            logger.info(String.format("CountryLanguage %s was save to db", countryLanguage));
+        } else {
+            logger.info(String.format("Something goes wrong. CountryLanguage %s wasn't added to db", countryLanguage));
+        }
     }
 
     public CountryLanguage update(CountryLanguage countryLanguage) {
-        return countryLanguageDAO.update(countryLanguage);
+        var updatedCountryLanguage = countryLanguageDAO.update(countryLanguage);
+        if (countryLanguage.equals(updatedCountryLanguage)) logger.info(String.format("CountryLanguage %s wasn't update", countryLanguage));
+        else logger.info(String.format("CountryLanguage %s was update", countryLanguage));
+        return updatedCountryLanguage;
     }
 }

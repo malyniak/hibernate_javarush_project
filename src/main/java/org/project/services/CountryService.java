@@ -39,13 +39,24 @@ public class CountryService {
     }
     public void create(Country country) {
         countryDAO.create(country);
+        var countries = getAll();
+        if (countries.contains(country)) {
+            logger.info(String.format("Country %s was save to db", country.getName()));
+        } else {
+            logger.info(String.format("Something goes wrong. Country %s wasn't added to db", country.getName()));
+        }
     }
 
     public Country update(Country country) {
-        return countryDAO.update(country);
+        var updatedCountry = countryDAO.update(country);
+        if (country.equals(updatedCountry)) logger.info(String.format("Country %s wasn't update", country.getName()));
+        else logger.info(String.format("Country %s was update", country.getName()));
+        return updatedCountry;
     }
 
     public Country getCountryByCity(City city) {
-        return countryDAO.getCountryByCity(city.getName());
+        var countryByCity = countryDAO.getCountryByCity(city.getName());
+        logger.info(String.format("Method getCountryByCity returns country %s", countryByCity.getName()));
+        return countryByCity;
     }
 }
